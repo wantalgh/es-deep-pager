@@ -64,7 +64,7 @@ public class DeepPageClient {
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html">Search API</a>
      * @param index
-     * The index name for query, e.g. my-index-*. This will be placed in search request path.
+     * The index name for query, can use wildcards, e.g. my-index-*. This will be placed in search request path.
      * For lower versions of elasticsearch, it can contains type, e.g. my-index/my-type.
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">Path parameters</a>
