@@ -59,12 +59,12 @@ public class DeepPageClient {
     }
 
     /**
-     * Search method, receives parameters such as index, queryDsl, from, size, etc.,
-     * and call the searchAPI of elasticsearch to query data.
+     * Search method, receives parameters such as index, queryDsl, from, size, etc., and call the searchAPI 
+     * of elasticsearch to query data.
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html">Search API</a>
      * @param index
-     * The index name for query, e.g. my-index-*. This will be placed in search request path.
+     * The index name for query, can use wildcards, e.g. my-index-*. This will be placed in search request path.
      * For lower versions of elasticsearch, it can contains type, e.g. my-index/my-type.
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">Path parameters</a>
@@ -75,22 +75,22 @@ public class DeepPageClient {
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html">Query Dsl</a>
      * @param source
-     * source filter for query, e.g. ["column1", "column2", "obj1.*", "obj2.*" ].
+     * source filter for query, e.g. ["column1", "column2", "obj1.*", "obj2.*" ]. 
      * This will be placed in the "_source" field of the request body.
-     * If not specified, the search will return all fields in the document.
+     * If not specified, The query will return fields based on the default settings of the index.
      * Reference:
      * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html">Source Filtering</a>
      * @param sort
      * The sort field for query, e.g. "id". This will be placed in the "sort" field of the request body.
-     * In order to implement fast large from parameter query, the query index must be pre-numbered:
-     * the index needs to have at least one sort field, which is a numeric type and stores the unique number of each document.
-     * The available range of the number is the entire long integer, which can be negative and discontinuous,
-     * but the number of each document must not be repeated.
-     * When performing fast from query, a number field must be used as sorting.
+     * In order to implement fast large from parameter query, the queried data must be a well-ordered set. 
+     * All the documents to be queried must have at least one unique number field, which is a numeric type and stores the 
+     * unique number of each document. The available range of the number is the entire long integer, which can be negative 
+     * and discontinuous, but the number of each document must not be repeated.
+     * When performing fast from query, a unique number field must be used as sorting.
      * @param asc
-     * Sort order of the sort field, if true, means ascending, if false, means descending.
+     * Sort order of the unique number field, if true, means ascending, if false, means descending.  
      * @param from
-     * Starting document offset. a non-negative number. e.g. 100000000
+     * Starting document offset, how many documents to skip. a non-negative number. e.g. 100000000
      * Using this client, you can use very large from parameter without changing the default max_result_window setting of the index.
      * @param size
      * The number of hits to return. a non-negative number. e.g. 1000000
