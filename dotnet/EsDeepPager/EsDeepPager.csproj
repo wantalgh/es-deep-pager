@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Wantalgh.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Wantalgh.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Title>EsDeepPager. A elasticsearch client that can perform fast deep paging queries.</Title>
+    <Authors>Wantalgh</Authors>
+    <Description>This project is a client for querying deep paging data in the elasticsearch cluster. The client provides a search method that accepts parameters such as index, queryDSL, source, from, size, etc., and uses these parameters to call elasticsearch's SearchAPI to get data. Compared to calling the SearchAPI directly, this client's search method can use very large from and size parameters to quickly query pre-numbered data without placing too much load on the elasticsearch cluster, and does not require modifying the index's max_result_window setting.
+
+This client is widely applicable and easy to use. It is designed to have only one class or file, and only relies on the minimum client officially provided by elasticsearch, so it can be easily introduced into other projects for use without causing negative impacts such as class library conflicts on the project.</Description>
+    <Copyright>Copyright (c) 2024 wantalgh</Copyright>
+    <PackageProjectUrl>https://github.com/wantalgh/es-deep-pager/wiki</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/wantalgh/es-deep-pager</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elastic.Transport" Version="0.4.20" />
+  </ItemGroup>
+
+</Project>

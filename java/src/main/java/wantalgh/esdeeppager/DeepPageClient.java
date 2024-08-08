@@ -52,7 +52,10 @@ public class DeepPageClient {
 
     /**
      * Deep paging query client constructor
-     * @param esRestClient elasticsearch low level rest client
+     * @param esRestClient
+     * elasticsearch low level rest client.
+     * Reference:
+     * <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/java-rest-low.html">java-rest-low</a>
      */
     public DeepPageClient(RestClient esRestClient) {
         this.restClient = esRestClient;
@@ -199,8 +202,8 @@ public class DeepPageClient {
      * Add range restrictions to the original query.
      */
     private String buildRangeQuery(String query, String sort, long start, long end) {
-        String template = "{\"bool\":{\"must\":%s,\"filter\":{\"range\":{\"%s\":{\"lte\":%d,\"gte\":%d}}}}}";
-        return String.format(template, query, sort, end, start);
+        String template = "{\"bool\":{\"must\":%s,\"filter\":{\"range\":{\"%s\":{\"gte\":%d,\"lte\":%d}}}}}";
+        return String.format(template, query, sort, start, end);
     }
 
     /**
@@ -225,7 +228,7 @@ public class DeepPageClient {
                 // sort duplicated or data changed
                 return new AbstractMap.SimpleEntry<>(sortMin, sortAbs);
             }
-            long sortMid = Double.valueOf(sortMin + sortAbs * 0.5).longValue();
+            long sortMid = sortMin + sortAbs / 2;
             String midQuery;
             if (sortStart < sortEnd) {
                 midQuery = buildRangeQuery(query, sort, sortStart, sortMid);
