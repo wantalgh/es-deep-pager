@@ -4,11 +4,13 @@ import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 
 public class DeepPageClientTest  {
@@ -34,14 +36,13 @@ public class DeepPageClientTest  {
         // call search method
         List<String> results = pageClient.search(
                 "test_data_*",
-                null,
-                null,
-                "pre_number",
+                "{\"match_all\":{}}",
+                Collections.singleton("*"),
+                "id",
                 true,
                 100000000,
                 10000);
-
-        System.out.println(results.size());
+        Assertions.assertNotNull(results);
     }
 
     /**
