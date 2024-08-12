@@ -32,7 +32,7 @@ namespace Wantalgh.EsDeepPagerTest
         /// </summary>
         private ITransport BuildTransport()
         {
-            string hosts = "localhost:9200,localhost:9200,localhost:9200";
+            string hosts = "node1:9200,node2:9200,node3:9200";
             string username = "elastic";
             string password = "search";
 
