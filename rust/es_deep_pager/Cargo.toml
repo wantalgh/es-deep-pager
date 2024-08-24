@@ -3,6 +3,7 @@ name = "es_deep_pager"
 license = "MIT"
 version = "0.1.0"
 edition = "2021"
+description = "A elasticsearch client that can perform fast deep paging queries."
 
 [lib]
 path = "src/deep_page_client.rs"
