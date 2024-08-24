@@ -1,0 +1,11 @@
+[package]
+name = "es_deep_pager"
+license = "MIT"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/deep_page_client.rs"
+
+[dependencies]
+elasticsearch = "8.5.0-alpha.1"

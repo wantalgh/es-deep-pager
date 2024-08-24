@@ -1,0 +1,11 @@
+[package]
+name = "es_deep_pager_test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+elasticsearch = "8.5.0-alpha.1"
+tokio = { version = "1", features = ["full"] }
+
+es_deep_pager = { path = "../es_deep_pager"}
