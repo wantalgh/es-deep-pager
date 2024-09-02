@@ -1,0 +1,34 @@
+{
+  "name": "@wantalgh/es-deep-pager",
+  "version": "1.0.0",
+  "description": "A elasticsearch client that can perform fast deep paging queries.",
+  "main": "lib/DeepPageClient.js",
+  "scripts": {
+    "test": "node -r ts-node/register test/TestClient.ts",
+    "lint:fix": "ts-standard --fix src",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wantalgh/es-deep-pager.git"
+  },
+  "keywords": [
+    "elasticsearch",
+    "client",
+    "page"
+  ],
+  "author": "wantalgh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wantalgh/es-deep-pager/issues"
+  },
+  "homepage": "https://github.com/wantalgh/es-deep-pager/wiki",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@elastic/transport": "^8.7.1"
+  }
+}
