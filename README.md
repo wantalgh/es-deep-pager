@@ -8,5 +8,5 @@ This client is widely applicable and easy to use. It is designed to have only on
 **Instructions:** https://github.com/wantalgh/es-deep-pager/wiki  
 **Algorithm:** https://github.com/wantalgh/es-deep-pager/wiki/Algorithm  
   
-**使用说明：** https://github.com/wantalgh/es-deep-pager/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E  
+**中文说明：** https://github.com/wantalgh/es-deep-pager/wiki/%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E  
 **算法介绍：** https://github.com/wantalgh/es-deep-pager/wiki/%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D  
